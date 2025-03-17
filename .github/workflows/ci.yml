@@ -24,18 +24,26 @@ jobs:
             filename=$(basename "$spec")
             module="${filename%.*}"
             cfg="${module}.cfg"
+            output_file=".github/tlc_output/${dir}_${module}_output.log"
 
             if [ -f "$dir/$cfg" ]; then
-              nix develop --command tlc -config "$dir/$cfg" "$spec"
+              nix develop --command tlc -config "$dir/$cfg" "$spec" > "$output_file" 2>&1
+              echo "Output saved to $output_file"
             else
-              echo "Warning: No config file found for $spec. Skipping."
+              echo "Warning: No config file found for $spec. Skipping." | tee "$output_file"
             fi
           done
       - name: Check for TLC errors
         run: |
-          if grep -r "Error:" .; then
+          if grep -r "Error:" .github/tlc_output/; then
             echo "TLC found errors in one or more specifications."
             exit 1
           else
             echo "All specifications checked successfully."
           fi
+      - name: Upload TLC output as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: tlc-output
+          path: .github/tlc_output
+        if: always()

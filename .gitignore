@@ -1,2 +1,3 @@
 */state/
 .direnv/
+.gitignore/tlc_output/*.log

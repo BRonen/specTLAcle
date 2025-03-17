@@ -11,8 +11,6 @@
         defaultPackage = pkgs.mkShell {
           name = "specTLAcle";
           buildInputs = with pkgs;[ tlaplus ];
-
-          shellHook = "tlc --version && pcal --version";
         };
       }
     );
