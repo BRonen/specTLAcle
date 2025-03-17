@@ -1,0 +1,25 @@
+warning: Git tree '/home/brenno.rodrigues/github/pcal' is dirty
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 71 and seed -4306888805428073044 with 1 worker on 16 cores with 7076MB heap and 64MB offheap memory (Linux 6.8.0-55-generic amd64, Oracle Corporation 1.8.0_432 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file /home/brenno.rodrigues/github/pcal/clock-hours/spec.tla
+Parsing file /tmp/Naturals.tla
+Semantic processing of module Naturals
+Semantic processing of module spec
+Starting... (2025-03-16 21:37:02)
+Computing initial states...
+Computed 2 initial states...
+Computed 4 initial states...
+Computed 8 initial states...
+Finished computing initial states: 12 distinct states generated at 2025-03-16 21:37:02.
+Error: Deadlock reached.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+hr = 12
+
+State 2: <HCnxt line 6, col 10 to line 7, col 17 of module spec>
+hr = 13
+
+24 states generated, 13 distinct states found, 0 states left on queue.
+The depth of the complete state graph search is 2.
+The average outdegree of the complete state graph is 0 (minimum is 0, the maximum 1 and the 95th percentile is 1).
+Finished in 00s at (2025-03-16 21:37:02)

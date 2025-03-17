@@ -42,7 +42,7 @@ jobs:
             echo "All specifications checked successfully."
           fi
       - name: Upload TLC output as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: tlc-output
           path: .github/tlc_output
